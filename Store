@@ -1,0 +1,14 @@
+1.
+Select customer_id, count(*) as Total, SUM(cost) as Amount ,Avg(cost) as Average from customer_products , products
+where customer_products.product_id = products.product_id group by customer_id
+2.
+Select count(*) as Total , purchase_date from customer_products group by purchase_date
+
+Select sum(products.cost) as Cost, purchase_date from products, customer_products
+where products.product_id = customer_products.product_id group by purchase_date
+
+Select MIN(Total), MAX(Total) from (Select count(*) as Total , purchase_date from customer_products group by purchase_date)
+
+3.
+Select count(*) as Items, product_category from customer_products, products where customer_products.product_id = products.product_id
+group by product_category
